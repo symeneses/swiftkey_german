@@ -5,8 +5,16 @@
 # Session Data files
 .RData
 
+# Data files
+Coursera-SwiftKey.zip
+
 # Example code in package build process
 *-Ex.R
+data_exploration.Rmd
+Milestone Report.Rmd
+
+# Notebook files
+*.nb.html
 
 # Output files from R CMD build
 /*.tar.gz
@@ -27,6 +35,9 @@ vignettes/*.pdf
 # knitr and R markdown default cache directories
 /*_cache/
 /cache/
+
+# rsconnect directory
+/rsconnect/
 
 # Temporary files created by R markdown
 *.utf8.md
