@@ -50,11 +50,13 @@ nextWords(text)
 How to use the model
 ========================================================
 
-Go to the link [here]()
+Go to the link [here](https://symeneses.shinyapps.io/SwiftKey_German/)
 
 And type!
 
 You will see always 3 words as suggestions for the next one!
+
+And the final prediction! Easy! Isn't it?
 
 
 Conclusions & Future Improvements
