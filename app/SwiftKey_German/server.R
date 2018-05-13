@@ -18,6 +18,10 @@ shinyServer(function(input, output, clientData, session) {
 
   suggestions <- reactive(nextWords(text()))
 
+  prediction <- reactive(suggestions()[1])
+
   output$suggestion <- renderTable(t(suggestions()),colnames = FALSE)
+
+  output$prediction <- renderText(prediction())
 
 })

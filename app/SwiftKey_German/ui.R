@@ -16,14 +16,17 @@ shinyUI(
                       fluidRow(
                         column(4,
                                br(),
+                               h2("Suggestions"),
                                tableOutput("suggestion"),
+                               h2("Prediction"),
+                               textOutput(outputId="prediction"),
                                br(),
                                textInput(inputId="text", label = "Write your text",value = "")
                         )
                       )
              ),
              navbarMenu("Help",
-                        tabPanel("How does it work?", includeHTML("mySwiftKey.html")),
+                        tabPanel("How does it work?", includeMarkdown("mySwiftKey.Rmd")),
                         tabPanel("About", includeMarkdown("README.md"))
              )
   )

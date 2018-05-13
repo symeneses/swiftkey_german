@@ -1,0 +1,13 @@
+name: SwiftKey_German
+title: SwiftKey_German
+username:
+account: symeneses
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 342324
+bundleId: 1371900
+url: https://symeneses.shinyapps.io/SwiftKey_German/
+when: 1526249207.18587
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: mySwiftKey.html
