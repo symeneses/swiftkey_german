@@ -5,18 +5,21 @@ date: "24 Januar 2018"
 output: html_document
 ---
 
-```{r setup, include=FALSE, echo=FALSE}
-knitr::opts_chunk$set(warning = FALSE, error = FALSE)
-setwd('~/Data_Science/R/Tasks/SwiftKey')
-sapply(list.files(pattern="[.]R$", path="R/", full.names=TRUE), source, echo = FALSE, verbose = FALSE, print.eval = FALSE)
-```
-
 # Project Swiftkey: German Corpora
 
 The main goal of this project is to build a predictive text model. That means, I will use some data science, or to be more specific, NLP (Natural Language Processing) to predict the next words a user intends to type. This reduces the time a person needs to write a message.
 
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+	error = FALSE,
+	warning = FALSE
+)
+setwd('~/Data_Science/R/Tasks/SwiftKey')
+sapply(list.files(pattern="[.]R$", path="R/", full.names=TRUE), source, echo = FALSE, verbose = FALSE, print.eval = FALSE)
+```
 
-1. Retrieving the data
+
+## Retrieving the data
 
 Data is collected from multiple sources: Blogs, news and twitter. To make the process faster a sample is taken.
 
@@ -31,7 +34,7 @@ stats_sample <- statText(c("train","test"))
 
 ```
 
-2. Creating n-grams
+## Creating n-grams
 
 Data is cleaned, tokenized, DTM(Document-Term Matrix) with n-grams from 0 to 4 are created.
 N-grams are finally organized in matrixes with their frequency in descedent order. Matrices are used are they are faster than dataframes, this will facilitate the search or words.
@@ -54,7 +57,7 @@ createTotalTF("train")
 ```
 
 
-3. Modelling
+## Modelling
 
 The function __nextWords__ extract the last 3 words of the text and look the most likely next 3 words. First using 3 grams, then 2 grams, 1 gram, partial 2 grams and finally, the most common words in the corpora. When the text or a new sentence starts, the next word will be also the most common words in the language. 
 
@@ -69,14 +72,14 @@ text <- "ich "
 nextWords(text)
 ```
 
-Conclusions
+## Conclusions
 
 - The task of language modeling has multiple applications and help us to understand language.
 - The use of more n grams can help to improve accuracy but demands more memory and make the predictions slower.
 - BOW allow us to get useful predictions of the next word.
 
 
-Future improvements
+## Future improvements
 
 - Use word embeddings like word2vec to get better predictions for words that are not in the corpora.
 - Include corpora with part of the speech tags to take probabilities of sequences (for example Verb -> Object -> Preposition) into consideration.

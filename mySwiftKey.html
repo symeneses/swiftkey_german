@@ -126,9 +126,8 @@ $(document).ready(function () {
 <div id="project-swiftkey-german-corpora" class="section level1">
 <h1>Project Swiftkey: German Corpora</h1>
 <p>The main goal of this project is to build a predictive text model. That means, I will use some data science, or to be more specific, NLP (Natural Language Processing) to predict the next words a user intends to type. This reduces the time a person needs to write a message.</p>
-<ol style="list-style-type: decimal">
-<li>Retrieving the data</li>
-</ol>
+<div id="retrieving-the-data" class="section level2">
+<h2>Retrieving the data</h2>
 <p>Data is collected from multiple sources: Blogs, news and twitter. To make the process faster a sample is taken.</p>
 <pre class="r"><code>getData(&quot;Coursera-SwiftKey.zip&quot;)
 # Statistics from the corpus
@@ -137,9 +136,9 @@ stats &lt;- statText(c('blogs_org', 'news_org', 'twitter_org'))
 getSample(10,2)
 # Statistics from the sample to check the training data and test data.
 stats_sample &lt;- statText(c(&quot;train&quot;,&quot;test&quot;))</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>Creating n-grams</li>
-</ol>
+</div>
+<div id="creating-n-grams" class="section level2">
+<h2>Creating n-grams</h2>
 <p>Data is cleaned, tokenized, DTM(Document-Term Matrix) with n-grams from 0 to 4 are created. N-grams are finally organized in matrixes with their frequency in descedent order. Matrices are used are they are faster than dataframes, this will facilitate the search or words.</p>
 <pre class="r"><code># Create corpus
 createCorpus(&quot;train&quot;)
@@ -155,9 +154,9 @@ createTF(&quot;train&quot;,3)
 createTF(&quot;train&quot;,4)
 # Create matrix with all ngrams with their respective frequencies
 createTotalTF(&quot;train&quot;)</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Modelling</li>
-</ol>
+</div>
+<div id="modelling" class="section level2">
+<h2>Modelling</h2>
 <p>The function <strong>nextWords</strong> extract the last 3 words of the text and look the most likely next 3 words. First using 3 grams, then 2 grams, 1 gram, partial 2 grams and finally, the most common words in the corpora. When the text or a new sentence starts, the next word will be also the most common words in the language.</p>
 <p>Examples:</p>
 <pre class="r"><code>text &lt;- &quot;ich&quot;
@@ -169,18 +168,23 @@ nextWords(text)</code></pre>
 <pre class="r"><code>text &lt;- &quot;ich &quot;
 nextWords(text)</code></pre>
 <pre><code>## [1] &quot;die&quot; &quot;der&quot; &quot;und&quot;</code></pre>
-<p>Conclusions</p>
+</div>
+<div id="conclusions" class="section level2">
+<h2>Conclusions</h2>
 <ul>
 <li>The task of language modeling has multiple applications and help us to understand language.</li>
 <li>The use of more n grams can help to improve accuracy but demands more memory and make the predictions slower.</li>
 <li>BOW allow us to get useful predictions of the next word.</li>
 </ul>
-<p>Future improvements</p>
+</div>
+<div id="future-improvements" class="section level2">
+<h2>Future improvements</h2>
 <ul>
 <li>Use word embeddings like word2vec to get better predictions for words that are not in the corpora.</li>
 <li>Include corpora with part of the speech tags to take probabilities of sequences (for example Verb -&gt; Object -&gt; Preposition) into consideration.</li>
 <li>Implementation of Recurrent Neural Networks (RNN) to predict the next word.</li>
 </ul>
+</div>
 </div>
 
 
